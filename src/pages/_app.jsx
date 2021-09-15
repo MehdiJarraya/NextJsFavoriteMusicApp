@@ -7,7 +7,9 @@ import { genres } from '../data/genres';
 
 const App = ({ Component, pageProps }) => {
   const [genresData, setGenresData] = useState(
-    genres.map((item) => ({ ...item, isFavorite: false }))
+    genres
+      .filter((item) => item.numShows > 4)
+      .map((item) => ({ ...item, isFavorite: false }))
   );
 
   const toggleFavorite = (id) => {
