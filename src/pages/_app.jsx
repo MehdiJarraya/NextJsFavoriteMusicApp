@@ -34,6 +34,7 @@ const App = ({ Component, pageProps }) => {
       <Component
         {...pageProps}
         genresData={genresData}
+        setGenresData={setGenresData}
         toggleFavorite={toggleFavorite}
       />
     </Navbar>
