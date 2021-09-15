@@ -1,18 +1,12 @@
+import GenreList from '../components/genres/GenreList';
 import { Layout } from '../components/Layout';
-import { genres } from '../data/genres';
 
-const IndexPage = () => (
-  <Layout title="ACB Coding Task">
+const IndexPage = ({ genresData = [], toggleFavorite }) => (
+  <Layout title="All music genre">
     <header>
-      <h1>Genres</h1>
+      <h1>Shows by Genre ({genresData.length})</h1>
     </header>
-    <main>
-      <ul>
-        {genres.map(({ id, title }) => (
-          <li key={id}>{title}</li>
-        ))}
-      </ul>
-    </main>
+    <GenreList genresData={genresData} toggleFavorite={toggleFavorite} />
   </Layout>
 );
 
