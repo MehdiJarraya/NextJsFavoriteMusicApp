@@ -1,0 +1,17 @@
+.favIcon{
+  float: right
+}
+.genreItem{
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.centerContent{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+}
