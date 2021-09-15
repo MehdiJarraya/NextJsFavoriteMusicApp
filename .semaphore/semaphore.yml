@@ -1,0 +1,35 @@
+version: v1.0
+name: Build and test
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: Install and cache
+          commands:
+            - sem-version node 12
+            - checkout
+            - cache restore
+            - npm install
+            - cache store
+  - name: Run tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: Lint code
+          commands:
+            - npm run lint
+        - name: Run tests
+          commands:
+            - npm run test
+        - name: Build code
+          commands:
+            - npm run build
+            - cache store next-$SEMAPHORE_GIT_SHA .next

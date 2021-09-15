@@ -1,0 +1,8 @@
+logs
+*.log
+package-lock.json
+node_modules/
+.cache/
+public
+*.png
+.git

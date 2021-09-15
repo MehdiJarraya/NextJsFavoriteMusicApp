@@ -1,0 +1,30 @@
+/* Reset */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+header,
+main,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Bare elements */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+}

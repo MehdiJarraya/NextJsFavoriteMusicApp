@@ -1,0 +1,77 @@
+{
+  "name": "coding-task-next",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "next build",
+    "commit": "commit",
+    "dev": "next",
+    "format": "npm run format:css && npm run format:js",
+    "format:css": "npm run lint:css -- --fix",
+    "format:js": "npm run prettier -- --write",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint --allow-empty-input 'src/**/*.{css,js,jsx}'",
+    "lint:js": "eslint --no-error-on-unmatched-pattern . src/**/*.{js,jsx}",
+    "prettier": "prettier package.json .*rc *.js 'src/**/*.{js,jsx}'",
+    "start": "next start",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "npm test -- --coverage",
+    "test:dev": "npm test -- --watch",
+    "validate": "npm run lint && npm test && npm run prettier -- --list-different"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "'src/**/*.{js,jsx}'": [
+      "npm run lint:js -- --fix",
+      "npm run format:js"
+    ],
+    "src/**/*.styles.{css,js,jsx}": [
+      "npm run format:css"
+    ]
+  },
+  "browserslist": [
+    "extends @acolorbright/browserslist-config"
+  ],
+  "engines": {
+    "node": "v16.6.2"
+  },
+  "dependencies": {
+    "next": "10.2.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@acolorbright/browserslist-config": "1.0.1",
+    "@acolorbright/eslint-config-react": "2.0.2",
+    "@acolorbright/stylelint-config": "2.0.1",
+    "@babel/core": "7.14.0",
+    "@babel/eslint-parser": "7.13.14",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
+    "@commitlint/prompt-cli": "12.1.4",
+    "@testing-library/jest-dom": "5.1.1",
+    "@testing-library/react": "9.4.0",
+    "agnostic-axe": "3.0.3",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.26.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-extra-rules": "0.8.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-jsx-control-statements": "2.2.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-react": "7.23.2",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "husky": "4.2.3",
+    "jest": "25.1.0",
+    "lint-staged": "10.0.7",
+    "prettier": "1.19.1",
+    "stylelint": "13.13.0"
+  }
+}
