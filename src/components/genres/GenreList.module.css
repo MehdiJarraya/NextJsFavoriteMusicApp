@@ -1,8 +1,7 @@
 .grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(8, 1fr);
-  grid-auto-rows: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 10%));
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
