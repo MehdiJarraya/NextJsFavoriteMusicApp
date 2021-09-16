@@ -2,6 +2,7 @@
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(100px, 10%));
+  grid-auto-rows: 100px;
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
